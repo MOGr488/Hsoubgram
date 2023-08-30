@@ -18,14 +18,15 @@
             </div>
             @if($post->owner->id === auth()->id())
                 <a href="/p/{{$post->slug}}/edit"><i class='bx bx-message-square-edit text-xl'></i></a>
+                <form action="/p/{{$post->slug}}/delete" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure?')">
+                        <i class='bx bx-message-square-x ml-2 text-xl text-red-600'></i>
+                    </button>
+                </form>
             @endif
-            <form action="/p/{{$post->slug}}/delete" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure?')">
-                    <i class='bx bx-message-square-x ml-2 text-xl text-red-600'></i>
-                </button>
-            </form>
+
         </div>
 
     </div>
