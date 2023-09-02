@@ -4,6 +4,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +17,11 @@ use App\Http\Controllers\CommentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require __DIR__.'/auth.php';
 
 Route::get('/explore',[PostController::class, 'explore'])->name('explore');
+Route::get('/{user:username}', [UserController::class, 'index'])->middleware('auth')->name('user_profile');
+
 Route::controller(PostController::class)->middleware('auth')->group(function (){
     Route::get('/', 'index')->name('home_page');
     Route::get('/p/create','create')->name('create_post');
@@ -42,4 +47,3 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/p/{post:slug}/comment', [CommentController::class, 'store'])->name('store_comment');
 
-require __DIR__.'/auth.php';
