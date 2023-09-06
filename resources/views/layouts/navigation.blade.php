@@ -41,7 +41,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                        <div>
-                           <img src="{{ auth()->user()->image }}" alt="user profile picture" class="w-6 h-6 rounded-full">
+                           <img src="{{ asset('storage/'.auth()->user()->image) }}" alt="user profile picture" class="w-6 h-6 rounded-full">
                        </div>
                     </x-slot>
 
