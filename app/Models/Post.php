@@ -19,4 +19,14 @@ protected $fillable = ['description', 'slug', 'image'];
         return $this->hasMany(Comment::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'likes');
+    }
+
+    public function liked(User $user)
+    {
+        return $this->likes()->where('user_id', $user->id)->exists();
+    }
+
 }
