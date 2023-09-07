@@ -25,6 +25,11 @@
                         <i class='bx bx-message-square-x ml-2 text-xl text-red-600'></i>
                     </button>
                 </form>
+            @elseif(auth()->user()->is_following($post->owner))
+                <a href="/{{ $post->owner->username }}/unfollow" class="w-30 text-blue-400 text-sm font-bold px-3 text-center">{{ __('Unfollow') }}</a>
+            @else
+                <a href="/{{ $post->owner->username }}/follow" class="w-30 text-blue-400 text-sm font-bold px-3 text-center">{{__('Follow')}}</a>
+
             @endif
 
         </div>

@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/p/{post:slug}/like', LikeController::class)->middleware('auth');
+Route::get('/{user:username}/follow', [UserController::class, 'follow'])->middleware('auth')->name('follow_user');
+Route::get('/{user:username}/unfollow', [UserController::class, 'unfollow'])->middleware('auth')->name('unfollow_user');
 
 Route::post('/p/{post:slug}/comment', [CommentController::class, 'store'])->name('store_comment');
 
