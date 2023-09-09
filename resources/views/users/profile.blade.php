@@ -13,6 +13,7 @@
     <div class="text-3xl mb-3 dark:text-gray-300">
         {{ $user->username }} </div>
             <div class="ml-3">
+                @auth
         @if($user->id === auth()->id())
             <a href="/{{$user->username}}/edit"
                class="w-50 px-5 border text-sm font-bold py-1 rounded-md border-neutral-300 text-center dark:text-gray-300">
@@ -24,6 +25,10 @@
             @else
                 <a href="/{{ $user->username }}/follow" class="w-30 bg-blue-400 text-white px-3 py-1 rounded text-center self-start ">{{ __('Follow') }}</a>
         @endif
+                @endauth
+                @guest
+                        <a href="/{{ $user->username }}/follow" class="w-30 bg-blue-400 text-white px-3 py-1 rounded text-center self-start ">{{ __('Follow') }}</a>
+                    @endguest
             </div>
     </div>
 

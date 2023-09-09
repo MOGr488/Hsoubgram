@@ -16,6 +16,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+//        abort_if(auth()->user()->cannot('edit-update-profile', $user), 403,'You are not authorized to access this page.');
+//        $this->authorize('edit-update-profile', $user);
         return view('users.edit', compact('user'));
     }
 
