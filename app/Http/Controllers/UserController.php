@@ -34,7 +34,7 @@ class UserController extends Controller
 
         if ($data->has('image')){
             $path = $request->file('image')->store('users', 'public');
-            $data['image'] = '/'. $path;
+            $data['image'] = '/storage/'. $path;
         }
 
         $data['private_account'] = $request->has('private_account');

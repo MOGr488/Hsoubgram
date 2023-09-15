@@ -21,7 +21,7 @@
                             <a href="/login"
                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest ltr:mr-2 rtl:ml-2">{{ __('Login') }}</a>
                             <a href="/register"
-                               class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest">{{ __('Register') }}</a>
+                               class="inline-flex items-center px-4 py-2 dark:text-white font-semibold text-xs uppercase tracking-widest">{{ __('Register') }}</a>
                         </div>
                     </div>
                 @endguest
@@ -50,10 +50,11 @@
                         @endauth
 
                         <div class="hidden md:block">
+                            @auth
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <div>
-                                        <img src="{{ asset('storage/'.auth()->user()->image) }}"
+                                        <img src="{{ auth()->user()->image }}"
                                              alt="user profile picture"
                                              class="w-6 h-6 rounded-full">
                                     </div>
@@ -64,7 +65,7 @@
                                         :href="route('user_profile', ['user' => auth()->user()->username])">
                                         {{ __('Profile') }}
                                     </x-dropdown-link>
-
+                                    @endauth
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -108,11 +109,9 @@
                     <x-responsive-nav-link :href="route('login')">{{ __('Login') }}</x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('register')">{{ __('Register') }}</x-responsive-nav-link>
                 @endguest
-                <div class="px-4">
-                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                </div>
 
+
+@auth
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('user_profile', ['user' => auth()->user()->username])">
                         {{ __('Profile') }}
@@ -129,6 +128,7 @@
                         </x-responsive-nav-link>
                     </form>
                 </div>
+                    @endauth
             </div>
         </div>
     </div>
