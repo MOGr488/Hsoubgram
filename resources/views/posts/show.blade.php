@@ -74,7 +74,7 @@
 
             <div class="p-3 flex flex-row border border-t-2">
                 <livewire:like :post="$post" />
-                <a class="grow" onclick="document.getElementById('comment_body').foucs()">
+                <a class="grow" onclick="document.getElementById('comment_body').focus()">
                     <i class="bx bx-comment text-3xl hover:text-gray-400 cursor-pointer mr-3"></i></a>
             </div>
 
@@ -84,7 +84,7 @@
                     @csrf
                     <div class="flex flex-row">
                         <textarea name="body" id="comment_body" placeholder="Add a comment..."
-                            class="h-5 grow resize-none overflow-hidden border-none bg-none p-0 placeholder-gray-400 outline-0 focus:ring-4"></textarea>
+                            class="h-5 grow resize-none overflow-hidden border-none bg-none p-0 placeholder-gray-400 outline-0 focus:ring-0"></textarea>
 
                         <button type="submit" class="ml-5 border-none bg-white text-blue-500">Post</button>
                     </div>
