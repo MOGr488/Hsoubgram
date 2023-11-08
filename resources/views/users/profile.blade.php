@@ -20,7 +20,7 @@
                             class="w-50 px-5 border text-sm font-bold py-1 rounded-md border-neutral-300 text-center dark:text-gray-300">
                             {{ __('Edit Profile') }}</a>
                     @else
-                        <livewire:follow :userId="$user->id" classes="bg-blue-500 text-white" />
+                        <livewire:follow-button :userId="$user->id" classes="bg-blue-500 text-white" />
                     @endif
 
                 @endauth
