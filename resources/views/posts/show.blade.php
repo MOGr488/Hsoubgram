@@ -38,7 +38,6 @@
             <div class="grow overflow-y-auto">
                 <div class="flex items-start p-5">
                     <img src="{{ $post->owner->image }}" class="mr-5 h-10 w-10 rounded-full">
-
                     <div>
                         <a href="{{ $post->owner->username }}" class="font-bold">{{ $post->owner->username }}</a>
                         {{ $post->description }}

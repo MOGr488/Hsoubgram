@@ -19,9 +19,9 @@
                         <a href="/{{ $user->username }}/edit"
                             class="w-50 px-5 border text-sm font-bold py-1 rounded-md border-neutral-300 text-center dark:text-gray-300">
                             {{ __('Edit Profile') }}</a>
-                    
+                    @else
+                        <livewire:follow :userId="$user->id" classes="bg-blue-500 text-white" />
                     @endif
-                    <livewire:follow :userId="$user->id" classes="bg-blue-500 text-white"/>
 
                 @endauth
                 @guest
@@ -56,12 +56,7 @@
                     <span class="text-neutral-500 md:dark:text-white">{{ __('followers') }}</span>
                 </li>
 
-                <li class="flex flex-col md:flex-row text-center">
-                    <div class="md:mr-1 font-bold md:font-normal dark:text-white ">
-                        {{ $user->following()->wherePivot('confirmed', true)->get()->count() }}
-                    </div>
-                    <span class="text-neutral-500 md:dark:text-white">{{ __('following') }}</span>
-                </li>
+                <livewire:following :userId="$user->id" />
             </ul>
         </div>
     </div>
