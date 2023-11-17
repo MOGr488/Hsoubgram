@@ -25,7 +25,7 @@ class FollowButton extends Component
         $this->user = User::find($this->userId);
 
         auth()->user()->toggle_follow($this->user);
-
+        $this->emit('toggleFollow');
         $this->set_follow_state();
     }
 
