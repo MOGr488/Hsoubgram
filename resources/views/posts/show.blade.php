@@ -18,7 +18,10 @@
                         <a href="/{{ $post->owner->username }}" class="font-bold">{{ $post->owner->username }}</a>
                     </div>
                     @can('update', $post)
-                        <a href="/p/{{ $post->slug }}/edit"><i class='bx bx-message-square-edit text-xl'></i></a>
+                        {{-- <a href="/p/{{ $post->slug }}/edit"><i class='bx bx-message-square-edit text-xl'></i></a> --}}
+                        <button onclick="Livewire.emit('openModal', 'edit-post-modal', {{ json_encode([$post->id]) }})">
+                            <i class='bx bx-message-square-edit text-xl'></i></button>
+
                         <form action="/p/{{ $post->slug }}/delete" method="POST">
                             @csrf
                             @method('DELETE')
@@ -28,7 +31,7 @@
                         </form>
                     @endcan
                     @cannot('update', $post)
-                    <livewire:follow-button :post="$post" :userId="$post->owner->id"   classes="text-blue-500"/>
+                        <livewire:follow-button :post="$post" :userId="$post->owner->id" classes="text-blue-500" />
                     @endcannot
                 </div>
 
@@ -69,10 +72,10 @@
                 <livewire:like :post="$post" />
                 <a class="grow" onclick="document.getElementById('comment_body').focus()">
                     <i class="bx bx-comment text-3xl hover:text-gray-400 cursor-pointer mr-3"></i></a>
-                    
+
             </div>
 
-<livewire:likedby :post="$post" />
+            <livewire:likedby :post="$post" />
 
             <div class="border-t-2 p-5 border-gray-400">
                 <form action="/p/{{ $post->slug }}/comment" method="post">

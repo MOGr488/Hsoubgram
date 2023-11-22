@@ -17,7 +17,7 @@ class CreatePostModal extends ModalComponent
 
     public function save_temp()
     {
-        $image = $this->image->store('temp');
+        $image = $this->image->store('temp', 'public');
         $this->emit('openModal', 'filters-modal', ['image'=>$image]);
     }
 

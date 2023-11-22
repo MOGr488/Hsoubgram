@@ -1,7 +1,7 @@
 <div class="h-[50rem] lg:flex lg:flex-row overflow-y-auto">
     {{-- Left Side --}}
     <div class="flex h-1/2 lg:h-full items-center justify-center overflow-hidden bg-black lg:w-8/12">
-        <img class="h-full w-auto object-cover" src="{{ $filtered_image }}">
+        <img class="h-full w-auto object-cover" src="/storage/{{ $filtered_image }}">
     </div>
 
     {{-- Right Side --}}
