@@ -36,7 +36,7 @@ class FollowButton extends Component
             $this->follow_state = 'Pending';
         }
         elseif(auth()->user()->is_following($this->user)){
-            $this->follow_state = 'unfollow';
+            $this->follow_state = 'Unfollow';
         } else {
             $this->follow_state = 'Follow';
         }

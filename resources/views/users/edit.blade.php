@@ -5,7 +5,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">{{ __('Profile') }}</h3>
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">{{ __('Profile') }}</h3>
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
@@ -15,7 +15,7 @@
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="username" class="block text-sm font-medium text-gray-700">
                                     {{ __('Username') }} </label>
-                                <input type="text" name="username" id="username"
+                                <input type="text" name="username" id="company-website"
                                        class="focus:ring-neutral-500 focus:border-neutral-500 flex-1 mt-1 block w-full rounded sm:text-sm border-gray-300"
                                        value="{{ $user->username }}">
                                 @error('username')
@@ -35,7 +35,7 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700"> {{ __('Photo') }} </label>
                             <div class="mt-1 flex items-center">
-                                <img src="{{ asset($user->image) }}"
+                                <img src="{{ $user->image }}"
                                      class="h-12 w-12 object-cover rounded-full ltr:mr-5 rtl:ml-5 border border-gray-300">
                                 <input class="w-full border border-gray-200 bg-gray-50 block focus:outline-none rounded-xl hidden"
                                        name="image" id="file_input" type="file">
@@ -84,7 +84,7 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">{{ __('Personal Information') }}</h3>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{ __('Personal Information') }}</h3>
                     </div>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">

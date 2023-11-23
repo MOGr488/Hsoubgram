@@ -40,7 +40,7 @@ class UserController extends Controller
         $data['private_account'] = $request->has('private_account');
 
         $user->update($data->toArray());
-        session()->flash('success', __('Your profile has been updated!'));
+        session()->flash('success', __('You profile has been updated successfully!', [], $data['lang']));
         return redirect()->route('user_profile', $user);
     }
 

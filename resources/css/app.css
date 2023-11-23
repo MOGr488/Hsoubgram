@@ -27,4 +27,11 @@
         disabled:opacity-25 transition ease-in-out duration-150 cursor-pointer;
         margin-inline-start: -1rem;
         margin-inline-end: 1rem;
-}}
+}
+
+* {
+    @apply font-body
+}
+
+
+}
